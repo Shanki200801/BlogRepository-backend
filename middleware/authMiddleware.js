@@ -12,6 +12,7 @@ function verifyToken(req, res, next) {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
+    console.log(decoded, "is the decoded token");
     next();
   } catch (error) {
     console.log(error.message);
